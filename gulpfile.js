@@ -5,13 +5,13 @@ const sass = require("gulp-sass");
 // Compile Sass & Inject Into Browser
 gulp.task("sass", function() {
   return gulp
-    .src(["node_modules/bootstrap/scss/bootstrap.scss", "docs/scss/*.scss"])
+    .src(["node_modules/bootstrap/scss/bootstrap.scss", "./scss/*.scss"])
     .pipe(sass())
-    .pipe(gulp.dest("src/css"))
+    .pipe(gulp.dest("./css"))
     .pipe(browserSync.stream());
 });
 
-// Move JS Files to docs/js
+// Move JS Files to /js
 gulp.task("js", function() {
   return gulp
     .src([
@@ -19,14 +19,14 @@ gulp.task("js", function() {
       "node_modules/jquery/dist/jquery.min.js",
       "node_modules/popper.js/dist/umd/popper.min.js"
     ])
-    .pipe(gulp.dest("src/js"))
+    .pipe(gulp.dest("./js"))
     .pipe(browserSync.stream());
 });
 
 // Watch Sass & Serve
 gulp.task("serve", ["sass"], function() {
   browserSync.init({
-    server: "./src"
+    server: "./"
   });
 
   gulp.watch(
@@ -36,18 +36,18 @@ gulp.task("serve", ["sass"], function() {
   gulp.watch("/*.html").on("change", browserSync.reload);
 });
 
-// Move Fonts to docs/fonts
+// Move Fonts to /fonts
 gulp.task("fonts", function() {
   return gulp
     .src("node_modules/font-awesome/fonts/*")
-    .pipe(gulp.dest("src/fonts"));
+    .pipe(gulp.dest("./fonts"));
 });
 
-// Move Font Awesome CSS to docs/css
+// Move Font Awesome CSS to /css
 gulp.task("fa", function() {
   return gulp
     .src("node_modules/font-awesome/css/font-awesome.min.css")
-    .pipe(gulp.dest("src/css"));
+    .pipe(gulp.dest("./css"));
 });
 
 gulp.task("default", ["js", "serve", "fa", "fonts"]);
