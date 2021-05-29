@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/tapenbox/devpath/public/
+    - /bin/cp -R THEDEVPATH.GITHUB.IO
