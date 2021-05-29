@@ -2,4 +2,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/tapenbox/devpath/public/
-    - /repositories/cp -R thedevpath.github.io.git
+    - /bin/cp -R thedevpath.github.io.git $DEPLOYPATH
