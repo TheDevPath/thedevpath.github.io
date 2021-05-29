@@ -2,4 +2,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/tapenbox/devpath/public/
-    - /cp -R THEDEVPATH.GITHUB.IO
+    - /bin/cp -R img
